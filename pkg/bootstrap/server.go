@@ -5,6 +5,7 @@ import (
 	"first-app/pkg/config"
 	"first-app/pkg/html"
 	"first-app/pkg/routing"
+	"first-app/pkg/static"
 	"fmt"
 	"log"
 )
@@ -17,6 +18,8 @@ func Server() {
 	routing.Init()
 
 	router := routing.GetRouter()
+
+	static.LoadStatic(router)
 
 	html.LoadHTML(router)
 
