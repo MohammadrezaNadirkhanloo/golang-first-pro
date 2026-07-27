@@ -1,14 +1,9 @@
 package cmd
 
 import (
-	"first-app/pkg/config"
-	"fmt"
-	"log"
-	"net/http"
+	"first-app/pkg/bootstrap"
 
-	"github.com/gin-gonic/gin"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 func init() {
@@ -25,20 +20,5 @@ var serveCmd = &cobra.Command{
 }
 
 func server() {
-	config.Set()
-
-	configs := config.Get()
-
-	r := gin.Default()
-
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-			"app":     viper.Get("App.Name"),
-		})
-	})
-
-	if err := r.Run(fmt.Sprintf("%s:%s", configs.Server.Host, configs.Server.Port)); err != nil {
-		log.Fatalf("failed to run server: %v", err)
-	}
+	bootstrap.Server()
 }
