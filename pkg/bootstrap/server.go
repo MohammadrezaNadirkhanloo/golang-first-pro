@@ -3,6 +3,7 @@ package bootstrap
 import (
 	"first-app/internal/modules/home/routes"
 	"first-app/pkg/config"
+	"first-app/pkg/html"
 	"first-app/pkg/routing"
 	"fmt"
 	"log"
@@ -16,6 +17,8 @@ func Server() {
 	routing.Init()
 
 	router := routing.GetRouter()
+
+	html.LoadHTML(router)
 
 	routes.Routes(router)
 
