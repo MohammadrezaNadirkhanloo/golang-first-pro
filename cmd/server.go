@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"first-app/config"
+	"first-app/pkg/config"
 	"fmt"
 	"log"
 	"net/http"
@@ -25,7 +25,10 @@ var serveCmd = &cobra.Command{
 }
 
 func server() {
-	configs := ConfigsSet()
+	config.Set()
+
+	configs := config.Get()
+
 	r := gin.Default()
 
 	r.GET("/ping", func(c *gin.Context) {
@@ -38,22 +41,4 @@ func server() {
 	if err := r.Run(fmt.Sprintf("%s:%s", configs.Server.Host, configs.Server.Port)); err != nil {
 		log.Fatalf("failed to run server: %v", err)
 	}
-}
-
-func ConfigsSet() config.Config {
-	viper.SetConfigName("config")
-	viper.AddConfigPath("config")
-
-	if err := viper.ReadInConfig(); err != nil {
-		fmt.Println("Error read config file")
-	}
-
-	var configs config.Config
-
-	err := viper.Unmarshal(&configs)
-	if err != nil {
-		fmt.Printf("unable to decode into struct, %v", err)
-	}
-
-	return configs
 }
