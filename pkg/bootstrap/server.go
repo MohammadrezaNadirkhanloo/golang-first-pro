@@ -3,6 +3,7 @@ package bootstrap
 import (
 	"first-app/internal/modules/home/routes"
 	"first-app/pkg/config"
+	"first-app/pkg/database"
 	"first-app/pkg/html"
 	"first-app/pkg/routing"
 	"first-app/pkg/static"
@@ -12,6 +13,8 @@ import (
 
 func Server() {
 	config.Set()
+
+	database.Connect()
 
 	configs := config.Get()
 
