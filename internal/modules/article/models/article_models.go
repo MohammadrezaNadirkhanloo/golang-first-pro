@@ -8,8 +8,8 @@ import (
 
 type Article struct {
 	gorm.Model
-	Title string
+	Title   string
 	Content string
-	UserID uint
-	User models.User
+	UserID  uint
+	User    models.User
 }
