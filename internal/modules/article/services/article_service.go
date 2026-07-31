@@ -1,6 +1,7 @@
 package services
 
 import (
+	"errors"
 	"first-app/internal/modules/article/repositories"
 	"first-app/internal/modules/article/respones"
 )
@@ -24,4 +25,14 @@ func (articleService *ArticleService) GetFeaturedArticle() respones.Articles {
 func (articleService *ArticleService) GetStoriesArticle() respones.Articles {
 	articles := articleService.articleRepository.List(6)
 	return respones.ToArticles(articles)
+}
+
+func (articleService *ArticleService) Find(id int) (respones.Article, error) {
+	var response respones.Article
+
+	article := articleService.articleRepository.Find(id)
+	if article.ID == 0 {
+		return response, errors.New("error")
+	}
+	return respones.ToArticle(article), nil
 }
