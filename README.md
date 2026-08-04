@@ -70,7 +70,7 @@ Update the `db` section with your own MySQL credentials, and `server` with the h
 
 4. Run the project:
    ```bash
-   go run main.go
+   go run main.go help
    ```
 
 5. Open your browser at:
