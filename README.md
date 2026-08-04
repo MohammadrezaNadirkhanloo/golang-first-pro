@@ -25,19 +25,6 @@ A simple learning project built with **Go** for practicing backend development. 
 
 Go version used: **1.26.1**
 
-## 📁 Project Structure (example)
-
-```
-first-app/
-├── cmd/            # CLI commands (Cobra)
-├── internal/       # Application logic (handlers, models, ...)
-├── templates/       # .tmpl files for page rendering
-├── static/         # Static assets (CSS/JS)
-├── config.yaml     # App configuration
-├── go.mod
-├── go.sum
-└── main.go
-```
 
 > The structure above is a suggestion — adjust it to match your actual project layout.
 
@@ -96,7 +83,3 @@ Update the `db` section with your own MySQL credentials, and `server` with the h
 
 - Visit the home page to see the list of blog posts.
 - Use the post form in the app to create a new blog post.
-
-## 📄 License
-
-This is a personal learning project and is not licensed for reuse; add a LICENSE file if you'd like to open it up.
