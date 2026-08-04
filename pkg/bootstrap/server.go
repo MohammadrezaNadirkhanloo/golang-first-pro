@@ -6,6 +6,7 @@ import (
 	"first-app/pkg/database"
 	"first-app/pkg/html"
 	"first-app/pkg/routing"
+	"first-app/pkg/sessions"
 	"first-app/pkg/static"
 	"fmt"
 	"log"
@@ -19,8 +20,9 @@ func Server() {
 	configs := config.Get()
 
 	routing.Init()
-
+	
 	router := routing.GetRouter()
+	sessions.Start(router)
 
 	static.LoadStatic(router)
 

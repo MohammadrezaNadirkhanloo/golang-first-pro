@@ -3,6 +3,7 @@ module first-app
 go 1.26.1
 
 require (
+	github.com/gin-contrib/sessions v1.1.0
 	github.com/gin-gonic/gin v1.12.0
 	github.com/spf13/cobra v1.10.2
 	gorm.io/driver/mysql v1.6.0
@@ -12,8 +13,6 @@ require (
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.10.1 // indirect
-	github.com/gin-contrib/sessions v1.1.0 // indirect
-	github.com/go-session/session/v3 v3.2.1 // indirect
 	github.com/go-sql-driver/mysql v1.8.1 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/gorilla/context v1.1.2 // indirect
